@@ -5,7 +5,7 @@ import styles from './index.module.scss'
 
 class Login extends Component {
   state = {
-    loading: false
+    loading: false,
   }
   render() {
     const { loading } = this.state
@@ -18,13 +18,13 @@ class Login extends Component {
             <Form
               name="basic"
               labelCol={{
-                span: 8
+                span: 8,
               }}
               wrapperCol={{
-                span: 16
+                span: 16,
               }}
               initialValues={{
-                remember: true
+                remember: true,
               }}
               onFinish={this.onFinish}
               onFinishFailed={this.onFinishFailed}
@@ -36,8 +36,8 @@ class Login extends Component {
                 rules={[
                   {
                     required: true,
-                    message: 'Please input your username!'
-                  }
+                    message: 'Please input your username!',
+                  },
                 ]}
               >
                 <Input />
@@ -49,8 +49,8 @@ class Login extends Component {
                 rules={[
                   {
                     required: true,
-                    message: 'Please input your password!'
-                  }
+                    message: 'Please input your password!',
+                  },
                 ]}
               >
                 <Input.Password />
@@ -61,7 +61,7 @@ class Login extends Component {
                 valuePropName="checked"
                 wrapperCol={{
                   offset: 8,
-                  span: 16
+                  span: 16,
                 }}
               >
                 <Checkbox>Remember me</Checkbox>
@@ -70,7 +70,7 @@ class Login extends Component {
               <Form.Item
                 wrapperCol={{
                   offset: 8,
-                  span: 16
+                  span: 16,
                 }}
               >
                 <Button type="primary" htmlType="submit">
