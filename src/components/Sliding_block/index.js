@@ -1,3 +1,5 @@
+// 登录滑块
+
 import React, { Component } from 'react'
 import styles from './index.module.scss'
 import classNames from 'classnames'
@@ -10,7 +12,7 @@ class SlidingBlock extends Component {
       mouseMoveStata: false /*触发拖动状态  判断*/,
       maxwidth: '' /*拖动最大宽度，依据滑块宽度算出来的*/,
       confirmWords: '拖动滑块验证' /*滑块文字*/,
-      confirmSuccess: false /*验证成功判断*/,
+      confirmSuccess: false /*验证成功判断*/
     }
     this.dragDiv = React.createRef()
     this.moveDiv = React.createRef()
@@ -25,7 +27,7 @@ class SlidingBlock extends Component {
         <div
           ref={this.moveDiv}
           className={classNames('handler', 'handler_bg', {
-            handler_ok_bg: confirmSuccess,
+            handler_ok_bg: confirmSuccess
           })}
           onMouseDown={this.mousedownFn}
           style={{ position: 'absolute', top: ' 0px', left: ' 0px' }}
@@ -38,7 +40,7 @@ class SlidingBlock extends Component {
     // console.log(this.dragDiv.current.clientWidth)
     this.setState({
       maxwidth:
-        this.dragDiv.current.clientWidth - this.moveDiv.current.clientWidth,
+        this.dragDiv.current.clientWidth - this.moveDiv.current.clientWidth
     })
 
     document
@@ -55,7 +57,7 @@ class SlidingBlock extends Component {
       e.preventDefault && e.preventDefault() //阻止文字选中等 浏览器默认事件
       this.setState({
         mouseMoveStata: true,
-        beginClientX: e.clientX,
+        beginClientX: e.clientX
       })
     }
   }
@@ -63,7 +65,7 @@ class SlidingBlock extends Component {
   successFunction = () => {
     this.setState({
       confirmSuccess: true,
-      confirmWords: '验证通过',
+      confirmWords: '验证通过'
     })
 
     if (window.addEventListener) {
@@ -100,7 +102,7 @@ class SlidingBlock extends Component {
 
   moseUpFn = (e) => {
     this.setState({
-      mouseMoveStata: false,
+      mouseMoveStata: false
     })
     var width = e.clientX - this.state.beginClientX
     if (width < this.state.maxwidth) {
