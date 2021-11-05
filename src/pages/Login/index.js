@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Input, Button, Checkbox, Spin } from 'antd'
+import { Form, Input, Button, Spin } from 'antd'
+import { lc_login } from 'https/loginHttp'
+import { setToken } from 'utils/handle_token'
+
+import Lc_Message from 'utils/message'
 import logoImg from 'asserts/images/my-logo.gif'
 import styles from './index.module.scss'
 import SlidingBlock from 'components/Sliding_block/index'
@@ -27,23 +31,33 @@ const FormItemConfig = {
 }
 
 // login组件
-const Login = () => {
+const Login = (props) => {
   const [loading, setLoading] = useState(false)
 
+  useEffect(() => {
+    // console.log('useEffect执行')
+    window.localStorage.setItem('isSwipe', 0)
+  }, [])
+
   const onFinish = (values) => {
-    if (window.localStorage.getItem('isSwipe') !== 1) {
-      alert('hahah')
+    setLoading(true)
+    // console.log(window.localStorage.getItem('isSwipe'))
+    if (JSON.parse(window.localStorage.getItem('isSwipe')) === 0) {
+      setLoading(false)
+      Lc_Message('error', '提交失败', 2)
+    } else {
+      lc_login().then((res) => {
+        console.log(res.data.token)
+        setLoading(false)
+        setToken(res.data.token)
+        props.history.push('/home')
+      })
     }
-    console.log('Success:', values)
   }
 
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo)
   }
-
-  useEffect(() => {
-    window.localStorage.setItem('isSwipe', 0)
-  })
 
   return (
     <div className={styles.login}>
@@ -89,13 +103,13 @@ const Login = () => {
               <Input.Password placeholder="密码 admin" />
             </Form.Item>
 
-            <Form.Item
+            {/* <Form.Item
               name="remember"
               valuePropName="checked"
               {...FormItemConfig}
             >
               <Checkbox>Remember me</Checkbox>
-            </Form.Item>
+            </Form.Item> */}
 
             <SlidingBlock />
 

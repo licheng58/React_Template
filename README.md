@@ -1,3 +1,4 @@
+```JS
 1 - react-router --yarn add react-router-dom
 import { BrowserRouter as Router, BrowserRouter ,HashRouter as Router,Switch,Route,Link,NavLink} from "react-router-dom"
 
@@ -8,7 +9,7 @@ import { BrowserRouter as Router, BrowserRouter ,HashRouter as Router,Switch,Rou
 
 4 - 安装组件库（此项目安装 antd） -- yarn add antd 样式引入 @import '~antd/dist/antd.css';
 
-5 - 配置 src 根路径 根目录新建 jsconfig.json  
+5 - 配置 src 根路径 根目录新建 jsconfig.json
  {
 "compilerOptions": {
 "baseUrl": "src"
@@ -23,3 +24,6 @@ src 目录下新建 setupProxy.js
 7 - 使用 react-hooks -- yarn add eslint-plugin-react-hooks@next --dev (规范代码)
 
 8 - 使用 mock.js 1- yarn add axios -S 2- yarn add mockjs -D
+
+
+```
