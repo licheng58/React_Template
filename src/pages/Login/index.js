@@ -2,32 +2,32 @@ import React, { useState, useEffect } from 'react'
 import { Form, Input, Button, Spin } from 'antd'
 import { lc_login } from 'https/loginHttp'
 import { setToken } from 'utils/handle_token'
-
+import openNotificationWithIcon from 'utils/Lc_Natification'
 import Lc_Message from 'utils/message'
 import logoImg from 'asserts/images/my-logo.gif'
 import styles from './index.module.scss'
 import SlidingBlock from 'components/Sliding_block/index'
 const FormConfig = {
   labelCol: {
-    span: 8,
+    span: 8
   },
   wrapperCol: {
-    span: 16,
+    span: 16
   },
 
   // 提供默认值
   initialValues: {
     remember: true,
     username: 'admin',
-    password: 'admin',
-  },
+    password: 'admin'
+  }
 }
 
 const FormItemConfig = {
   wrapperCol: {
     // offset: 8,
-    span: 24,
-  },
+    span: 24
+  }
 }
 
 // login组件
@@ -47,10 +47,11 @@ const Login = (props) => {
       Lc_Message('error', '提交失败', 2)
     } else {
       lc_login().then((res) => {
-        console.log(res.data.token)
+        console.log(res)
         setLoading(false)
         setToken(res.data.token)
         props.history.push('/home')
+        openNotificationWithIcon('success', res.data.name, '欢迎登录!')
       })
     }
   }
@@ -82,8 +83,8 @@ const Login = (props) => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input your username!',
-                },
+                  message: 'Please input your username!'
+                }
               ]}
             >
               <Input placeholder="用户名 admin" />
@@ -96,8 +97,8 @@ const Login = (props) => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input your password!',
-                },
+                  message: 'Please input your password!'
+                }
               ]}
             >
               <Input.Password placeholder="密码 admin" />

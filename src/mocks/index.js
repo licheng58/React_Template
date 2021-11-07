@@ -1,22 +1,26 @@
 // mock.js
 var Mock = require('mockjs')
-const loginInfo = {
+
+//设定延迟
+Mock.setup({
+  timeout: 1000
+})
+
+const login = Mock.mock('/api/user/login', {
   userName: 'admin', // 用户名
-  name: 'admin', // 中文名称
+  name: '@name', // 中文名称
   'age|1-100': 100, // 100以内随机整数
-  birthday: '1989-10-10', // 日期
+  birthday: '@date("yyyy MM dd")', // 日期
   city: '上海', // 中国城市
   phone: '13127755541', // 手机号
-  token: '123321', // token
-}
-
-const login = Mock.mock('/api/user/login', 'get', () => loginInfo)
+  token: '@guid()' // token
+})
 
 const user_mune = Mock.mock('/api/user/menu', [
   {
     name: '仪表盘',
     icon: 'DashboardOutlined',
-    path: '/dashboard',
+    path: '/dashboard'
   },
   {
     name: '组件',
@@ -25,31 +29,31 @@ const user_mune = Mock.mock('/api/user/menu', [
     children: [
       {
         name: '工具条',
-        path: '/toolbar',
+        path: '/toolbar'
       },
       {
         name: 'BaseComponent',
-        path: '/baseComponent',
+        path: '/baseComponent'
       },
       {
         name: 'Columns',
-        path: '/column',
+        path: '/column'
       },
       {
         name: '搜索条',
-        path: '/searchBar',
+        path: '/searchBar'
       },
       {
         name: '数据表格',
-        path: '/datatable',
+        path: '/datatable'
       },
       {
         name: '表单',
-        path: '/form',
+        path: '/form'
       },
       {
         name: '穿梭树',
-        path: '/transferTree',
+        path: '/transferTree'
       },
       {
         name: '图表',
@@ -57,23 +61,23 @@ const user_mune = Mock.mock('/api/user/menu', [
         children: [
           {
             name: 'ECharts',
-            path: '/charts/ec',
+            path: '/charts/ec'
           },
           {
             name: 'G2',
-            path: '/charts/g2',
-          },
-        ],
+            path: '/charts/g2'
+          }
+        ]
       },
       {
         name: '打印',
-        path: '/print',
+        path: '/print'
       },
       {
         name: 'Banner 管理',
-        path: '/banner',
-      },
-    ],
+        path: '/banner'
+      }
+    ]
   },
 
   {
@@ -83,37 +87,37 @@ const user_mune = Mock.mock('/api/user/menu', [
     children: [
       {
         name: '按钮',
-        path: '/button',
+        path: '/button'
       },
       {
         name: '图片',
-        path: '/image',
+        path: '/image'
       },
       {
         name: '消息',
-        path: '/alerts',
+        path: '/alerts'
       },
       {
         name: '动画',
-        path: '/animations',
+        path: '/animations'
       },
       {
         name: '图标',
-        path: '/icons',
+        path: '/icons'
       },
       {
         name: '富文本',
-        path: '/editor',
+        path: '/editor'
       },
       {
         name: '模态窗',
-        path: '/modal',
+        path: '/modal'
       },
       {
         name: '遮罩',
-        path: '/mask',
-      },
-    ],
+        path: '/mask'
+      }
+    ]
   },
 
   {
@@ -123,49 +127,49 @@ const user_mune = Mock.mock('/api/user/menu', [
     children: [
       {
         name: '登录页',
-        path: '/sign/login',
+        path: '/sign/login'
       },
       {
         name: '注册页',
-        path: '/sign/register',
+        path: '/sign/register'
       },
       {
         name: '锁屏',
-        path: '/lock',
+        path: '/lock'
       },
       {
         name: '画廊',
-        path: '/gallery',
+        path: '/gallery'
       },
       {
         name: '空白页',
-        path: '/blank',
+        path: '/blank'
       },
       {
         name: '结果页',
-        path: '/result',
+        path: '/result'
       },
       {
         name: 'Coming Soon',
-        path: '/coming',
+        path: '/coming'
       },
       {
         name: '403',
-        path: '/403',
+        path: '/403'
       },
       {
         name: '404',
-        path: '/404',
+        path: '/404'
       },
       {
         name: '500',
-        path: '/500',
+        path: '/500'
       },
       {
         name: '多级路由',
-        path: '/level-route/:sub?',
-      },
-    ],
+        path: '/level-route/:sub?'
+      }
+    ]
   },
 
   {
@@ -175,10 +179,10 @@ const user_mune = Mock.mock('/api/user/menu', [
     children: [
       {
         name: 'CRUD',
-        path: '/crud/:detail?',
-      },
-    ],
-  },
+        path: '/crud/:detail?'
+      }
+    ]
+  }
 ])
 
 const charts1 = Mock.mock('/api/charts/bar1', [
@@ -186,7 +190,7 @@ const charts1 = Mock.mock('/api/charts/bar1', [
   { year: '1952 年', 'sales|1-100': 100 },
   { year: '1956 年', 'sales|1-100': 100 },
   { year: '1957 年', 'sales|1-100': 100 },
-  { year: '1958 年', 'sales|1-100': 100 },
+  { year: '1958 年', 'sales|1-100': 100 }
 ])
 
 const charts2 = Mock.mock('/api/charts/bar1', [
@@ -199,7 +203,7 @@ const charts2 = Mock.mock('/api/charts/bar1', [
     'May.|1-100': 1,
     'Jun.|1-100': 1,
     'Jul.|1-100': 1,
-    'Aug.|1-100': 1,
+    'Aug.|1-100': 1
   },
   {
     name: 'Berlin',
@@ -210,8 +214,8 @@ const charts2 = Mock.mock('/api/charts/bar1', [
     'May.|1-100': 1,
     'Jun.|1-100': 1,
     'Jul.|1-100': 1,
-    'Aug.|1-100': 1,
-  },
+    'Aug.|1-100': 1
+  }
 ])
 
 // 输出结果

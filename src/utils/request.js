@@ -2,10 +2,10 @@ import axios from 'axios'
 import { getToken } from './handle_token'
 const http = axios.create({
   baseURL: '/api',
-  timeout: 50000,
+  timeout: 50000
 })
 http.defaults.headers = {
-  Authorization: 'Basic cGxhdGZvcm1fbGljZW5zZV9hZG1pbjpod192ZGlfbGljZW5zZQ==',
+  Authorization: 'Basic cGxhdGZvcm1fbGljZW5zZV9hZG1pbjpod192ZGlfbGljZW5zZQ=='
 }
 
 //请求发出前拦截
