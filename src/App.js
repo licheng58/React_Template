@@ -1,7 +1,7 @@
 import React, { Component, Suspense } from 'react'
-import { HashRouter as Router, Switch, Route } from 'react-router-dom'
-import PrivateRoute from './utils/filter_page'
-import Home from './pages/Home'
+import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+
+import Layout from './pages/Layout'
 import Login from './pages/Login'
 import NoFound from './pages/NoFound'
 
@@ -13,8 +13,9 @@ export default class App extends Component {
         <div className="app">
           <Suspense fallback={<div>loading...</div>}>
             <Switch>
+              <Redirect exact from="/" to="/home"></Redirect>
               <Route path="/login" component={Login}></Route>
-              <PrivateRoute path="/home" exact component={Home}></PrivateRoute>
+              <Route path="/" component={Layout}></Route>
               <Route component={NoFound}></Route>
             </Switch>
           </Suspense>
