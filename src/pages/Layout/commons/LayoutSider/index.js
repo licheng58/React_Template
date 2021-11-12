@@ -1,36 +1,24 @@
 import React, { useState, useEffect } from 'react'
-import { Menu, Button } from 'antd'
+import { Menu } from 'antd'
 import {
   AppstoreOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
   PieChartOutlined,
   DesktopOutlined,
   ContainerOutlined,
   MailOutlined,
 } from '@ant-design/icons'
-
+import styles from './index.module.scss'
 const { SubMenu } = Menu
 
 const LayoutSider = (props) => {
-  const [collapsed, setCollapsed] = useState(true)
-
-  function handleClick() {
-    setCollapsed(!collapsed)
-  }
-
   return (
-    <div className="sider" style={{ width: 256 }}>
-      <Button type="primary" onClick={handleClick} style={{ marginBottom: 16 }}>
-        {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
-      </Button>
-
+    <div className={styles.sider}>
+      <div className="logo">123</div>
       <Menu
         defaultSelectedKeys={['1']}
         defaultOpenKeys={['sub1']}
         mode="inline"
         theme="dark"
-        inlineCollapsed={collapsed}
       >
         <Menu.Item key="1" icon={<PieChartOutlined />}>
           Option 1
