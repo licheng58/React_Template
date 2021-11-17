@@ -1,5 +1,10 @@
 import React, { Component, Suspense } from 'react'
-import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from 'react-router-dom'
 
 import Layout from './pages/Layout'
 import Login from './pages/Login'

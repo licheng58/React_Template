@@ -19,7 +19,7 @@ const FormConfig = {
   initialValues: {
     remember: true,
     username: 'admin',
-    password: 'admin'
+    password: 'macro123'
   }
 }
 
@@ -46,8 +46,8 @@ const Login = (props) => {
       setLoading(false)
       Lc_Message('error', '提交失败', 2)
     } else {
-      lc_login().then((res) => {
-        console.log(res)
+      lc_login(values).then((res) => {
+        // console.log(res)
         setLoading(false)
         setToken(res.data.token)
         props.history.push('/home')

@@ -11,7 +11,11 @@ const removeToken = () => {
 }
 
 const hasToken = () => {
-  return JSON.parse(localStorage.getItem('TOKEN'))
+  return JSON.parse(localStorage.getItem('TOKEN')) ? true : false
 }
 
-export { getToken, setToken, removeToken, hasToken }
+const clearToken = () => {
+  return localStorage.clear()
+}
+
+export { getToken, setToken, removeToken, hasToken, clearToken }
