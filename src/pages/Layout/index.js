@@ -26,14 +26,14 @@ const Layout_ = (props) => {
         <Sider
           collapsible
           collapsed={collapsed}
-          collapsedWidth={30}
+          collapsedWidth={60}
           theme={theme}
           width={width}
           trigger={trigger}
           onCollapse={onCollapse}
           style={{ height: '100%', backgroundColor: '#30363e' }}
         >
-          <LayoutSider />
+          <LayoutSider collapsed={collapsed} />
         </Sider>
 
         <Layout>

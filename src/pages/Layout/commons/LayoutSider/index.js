@@ -8,12 +8,36 @@ import {
   MailOutlined,
 } from '@ant-design/icons'
 import styles from './index.module.scss'
+import mgLogo from '../../../../asserts/images/my-logo.gif'
 const { SubMenu } = Menu
 
+const renderTitle = (props) => {
+  if (!props.collapsed) {
+    return (
+      <>
+        <div className="logo-img">
+          <img src={mgLogo} alt="" />
+        </div>
+        <div className="logo-title">
+          L C <span>Admin</span>
+        </div>
+      </>
+    )
+  } else {
+    return (
+      <div className="logo-img">
+        <img src={mgLogo} alt="" />
+      </div>
+    )
+  }
+}
+
 const LayoutSider = (props) => {
+  // console.log(props)
+  const { collapsed } = props
   return (
     <div className={styles.sider}>
-      <div className="logo">123</div>
+      <div className="logo">{renderTitle(props)}</div>
       <Menu
         defaultSelectedKeys={['1']}
         defaultOpenKeys={['sub1']}

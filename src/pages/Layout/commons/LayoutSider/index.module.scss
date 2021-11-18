@@ -3,8 +3,25 @@
     .logo {
       border-bottom: 1px solid #fff;
       height: 64px;
-      background: #000810;
+      background: #001529;
       color: #fff;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      &-title {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      &-img {
+        height: 100%;
+        margin-right: 10px;
+        img {
+          height: 100%;
+        }
+      }
     }
 
     // 设置菜单样式
