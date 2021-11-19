@@ -1,9 +1,11 @@
 import React, { Component, Suspense } from 'react'
+import { lc_getUserInfo } from 'https/userHttps'
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from 'react-router-dom'
 
 import Layout from './pages/Layout'
@@ -27,5 +29,17 @@ export default class App extends Component {
         </div>
       </Router>
     )
+  }
+
+  // componentDidMount() {
+  //   if (window.location.pathname !== '/login') {
+  //     this.getUserIndo()
+  //   }
+  // }
+
+  // 获取用户信息
+  getUserIndo = async () => {
+    const res = await lc_getUserInfo()
+    console.log(res)
   }
 }
