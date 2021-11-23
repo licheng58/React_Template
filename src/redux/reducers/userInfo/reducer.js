@@ -1,16 +1,16 @@
 const defaultState = {
-  TOKEN: '',
+	TOKEN: ''
 }
 
 const userInfoReducer = (state = defaultState.TOKEN, action) => {
-  // console.log(action)
-  switch (action.type) {
-    case 'SAVE_TOKEN':
-      return action.token
+	// console.log(action)
+	switch (action.type) {
+		case 'SAVE_TOKEN':
+			return action.token
 
-    default:
-      return state
-  }
+		default:
+			return state
+	}
 }
 
 export default userInfoReducer
