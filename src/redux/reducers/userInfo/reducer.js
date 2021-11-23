@@ -1,5 +1,6 @@
 const defaultState = {
 	TOKEN: ''
+	// USER_INFO: {}
 }
 
 const userInfoReducer = (state = defaultState.TOKEN, action) => {

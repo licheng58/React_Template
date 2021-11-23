@@ -14,9 +14,10 @@ const http = axios.create({
 //请求发出前拦截
 http.interceptors.request.use(
 	(config) => {
+		console.log(store.getState().userInfoReducer)
 		const token = store.getState().userInfoReducer
 		if (token) {
-			console.log(token)
+			// console.log(token)
 			config.headers['Authorization'] = 'Bearer ' + token
 		}
 		return config
