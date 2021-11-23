@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-import userInfoReducer from './reducers/userInfo/reducer'
+import { TOKEN, USER_INFO } from './reducers/userInfo/reducer'
 
-const reducer = combineReducers({ userInfoReducer })
+const reducer = combineReducers({ TOKEN, USER_INFO })
 export default reducer

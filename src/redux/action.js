@@ -1,3 +1,3 @@
-import { saveToken } from './reducers/userInfo/action'
+import { saveToken, setUserInfo } from './reducers/userInfo/action'
 
-export { saveToken }
+export { saveToken, setUserInfo }
