@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { Switch, Route } from 'react-router-dom'
+/*eslint-disable */
+import React, { useState } from 'react'
+import { Switch } from 'react-router-dom'
 import PrivateRoute from 'utils/filter_page'
 import { Layout } from 'antd'
 import styles from './index.module.scss'
@@ -7,7 +8,7 @@ import LayoutHeader from './commons/LayoutHeader'
 import LayoutSider from './commons/LayoutSider'
 
 import Home from './Home'
-const { Header, Footer, Sider, Content } = Layout
+const { Header, Sider, Content } = Layout
 
 const Layout_ = (props) => {
   const [collapsed, setCollapsed] = useState(false) //收起状态

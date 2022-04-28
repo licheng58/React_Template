@@ -3,7 +3,6 @@ import { Menu } from 'antd'
 import { AppstoreOutlined } from '@ant-design/icons'
 import styles from './index.module.scss'
 import mgLogo from 'asserts/images/my-logo.gif'
-import store from 'redux/store'
 const { SubMenu } = Menu
 
 const renderTitle = (props) => {
@@ -28,7 +27,8 @@ const renderTitle = (props) => {
 }
 
 const LayoutSider = (props) => {
-	let menus = JSON.parse(localStorage.getItem('SIDE_MENU')).menus
+	// let menus = JSON.parse(localStorage.getItem('SIDE_MENU')).menus
+	let menus = []
 	console.log(menus)
 	return (
 		<div className={styles.sider}>
